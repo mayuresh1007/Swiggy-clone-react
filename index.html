@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="rootofjs"></div>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+  ></script>
+
+  <script>
+    // this is from core react
+    const heading1 = React.createElement(
+      "h1",
+      {},
+      "Hi mayuresh Welcome to Namaste React by akshay"
+    );
+    console.log(heading1); //  this will give sthe object of javascript us
+    // for accessing the dom used the ReactDOM
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    // passing the react element in the root
+    root.render(heading1);
+  </script>
+
+  <!-- by using the plain javascript -->
+  <script>
+    const h1 = document.createElement("h1");
+    const p = document.createElement("p");
+    h1.innerHTML = "Hi this is by plain js";
+    p.innerText =
+      "const h1 = document.createElement('h1') , h1.innerHTML = 'Hi this is by plain js' , const rootofjs = document.getElementById('rootofjs') rootofjs.appendChild(h1);";
+    const rootofjs = document.getElementById("rootofjs");
+    rootofjs.appendChild(h1);
+    rootofjs.appendChild(p);
+  </script>
+  </body>
+
+</html>
