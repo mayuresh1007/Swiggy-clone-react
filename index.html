@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Font imported -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root">Not rendered</div>
+    <!-- inline style ==>>  style="background-color: antiquewhite;"-->
+    <div id="notes" style="background-color: antiquewhite;"></div>
     <!-- <div id="rootofjs"></div> -->
 
     <!-- <script
@@ -18,11 +27,11 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>-->
-    <script type="module" src="App.js"></script> 
-    <!-- imp  is  module i swritten bcoz we not importing the normal js file it is a js but it a module =>> import/export  -->
-  </body> 
+    <script type="module" src="App.js"></script>
+    <!-- imp  is  module is written bcoz we not importing the normal js file it is a js but it a module =>> import/export  -->
+  </body>
 
-    <!-- <script>
+  <!-- <script>
       // this is from core react
       const heading1 = React.createElement(
         "h1",
