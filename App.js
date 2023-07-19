@@ -168,7 +168,7 @@ const RestraurantCard = () => (
       {"Price -" + Burger.price} <span>&#8377;</span>{" "}
     </h4>
     <h4>{Burger.rating} Stars</h4>
-    <p>{Burger.map(cuisine=>)} </p>
+    <p> </p>
   </div>
 );
 // const RestraurantCard = () => (
