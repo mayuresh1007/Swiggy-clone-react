@@ -121,17 +121,6 @@ const AppHeader = () => (
   </div>
 );
 
-const AppBody = () => {
-  return (
-    <div className="restro-list">
-      <RestraurantCard />
-      <RestraurantCard />
-      <RestraurantCard />
-      <RestraurantCard />
-      <RestraurantCard />
-    </div>
-  );
-};
 /**
  Restraurants card
   - Menu
@@ -140,50 +129,85 @@ const AppBody = () => {
   - tag
  */
 
-const Burger = [
+const restraurantList = [
   {
+    id:1,
     name: "Burger King",
     price: "100",
     rating: "4.2 ",
     image:
-      "https://e7.pngegg.com/pngimages/908/351/png-clipart-mattar-paneer-indian-cuisine-paneer-tikka-masala-vegetarian-cuisine-paneer-soup-food-thumbnail.png",
+      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
     cuisine: ["Veg-Burger", "Nonveg", "egg -Burger"],
   },
   {
-    name: "Paneer",
+    id:2,
+    name: "Pizza Hut",
     price: "150",
     rating: "4.4 ",
     image:
-      "https://e7.pngegg.com/pngimages/908/351/png-clipart-mattar-paneer-indian-cuisine-paneer-tikka-masala-vegetarian-cuisine-paneer-soup-food-thumbnail.png",
+      "https://thumbs.dreamstime.com/b/heart-shape-various-vegetables-fruits-healthy-food-concept-isolated-white-background-140287808.jpg",
+    cuisine: ["Veg-kadhai", "veg-Bhaji", "palak panner"],
+  },
+  {
+    id:3,
+    name: "Dominoz",
+    price: "50",
+    rating: "3.4 ",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXqXo9UyZpyi08p03nofaS2MxRb_ScxqZ9ZMjNyvYM&s",
     cuisine: ["Veg-kadhai", "veg-Bhaji", "palak panner"],
   },
 ];
 // console.log(Burger[0].cuisine )
 // Burger.map(cuisine=>{console.log(cuisine)})
-const RestraurantCard = () => (
-  <div className="card">
-    <img src={Burger.image} alt="panner kadhai" />
-    <h3>{"Manu -" + Burger.name}</h3>
+const RestraurantCardNormalprop = (props) => {
+  console.log(props);
+  return (
+    <div className="card">
+      <img src={props.restraurant?.image} alt="panner kadhai" />
+      <h3>{"Menu -" + props.restraurant?.name}</h3>
+      <h4>
+        {"Price -" + props.restraurant?.price} <span>&#8377;</span>{" "}
+      </h4>
+      <h4>{props.restraurant?.rating} Stars</h4>
+      <p><strong>Cuisine -</strong>{props.restraurant?.cuisine.join(",")} </p>
+    </div>
+  );
+};
+
+// Propes ==> properties >> way to send data with destructuring=>{name,price,image,rating,cuisine}
+const RestraurantCard = ({name,price,image,rating,cuisine})=>{
+  return (
+    <div className="card">
+    <img src={image} alt="panner kadhai" />
+    <h3>{"Menu -" + name}</h3>
     <h4>
-      {"Price -" + Burger.price} <span>&#8377;</span>{" "}
+      {"Price -" + price} <span>&#8377;</span>{" "}
     </h4>
-    <h4>{Burger.rating} Stars</h4>
-    <p> </p>
+    <h4>{rating} Stars</h4>
+    <p><strong>Cuisine -</strong>{cuisine.join(", ")} </p>
   </div>
-);
-// const RestraurantCard = () => (
-//   <div className="card">
-//     <img
-//       src="https://e7.pngegg.com/pngimages/908/351/png-clipart-mattar-paneer-indian-cuisine-paneer-tikka-masala-vegetarian-cuisine-paneer-soup-food-thumbnail.png"
-//       alt="panner kadhai"
-//     />
-//     <h3>Manu - Panner cadhai</h3>
-//     <h4>
-//       Price - 100 <span>&#8377;</span>{" "}
-//     </h4>
-//     <h4>Rating - 4.3 stars</h4>
-//   </div>
-// );
+  )
+}
+
+const AppBody = () => {
+  return (
+    <div className="restro-list">
+      {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
+      {/* <RestraurantCard restraurant={restraurantList[0]} /> method 2 <RestraurantCard restraurant={restraurantList[1]} />
+      <RestraurantCard restraurant={restraurantList[2]} />*/}
+      {/* <RestraurantCard {...restraurantList[0]} />
+      <RestraurantCard {...restraurantList[1]} />
+      <RestraurantCard {...restraurantList[2]} /> */}
+      {
+        restraurantList.map((restro) =>{
+          return <RestraurantCard {...restro} key={restro.id}/>
+        })
+      }
+      
+    </div>
+  );
+};
 const AppFooter = () => {
   return <h3>Footer</h3>;
 };
