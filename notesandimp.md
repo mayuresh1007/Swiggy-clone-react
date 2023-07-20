@@ -65,3 +65,10 @@ Optional chaining is especially helpful when dealing with complex data structure
 
 ## react fibre reconcilation
 https://github.com/acdlite/react-fiber-architecture
+
+# Logic
+
+getting teh filterdata
+and then its render 
+
+

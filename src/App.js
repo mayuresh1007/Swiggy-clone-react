@@ -18,6 +18,9 @@ provides the https for dev build ==> npx parcel index.html --https
 
 import React from "react";
 import ReactDOM from "react-dom/client";
+import AppHeader from "./Components/Header";
+import AppFooter from "./Components/Footer";
+import AppBody from "./Components/Body";
 
 const notes = ReactDOM.createRoot(document.getElementById("notes"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -95,31 +98,19 @@ const AppLayout = () => {
     </React.Fragment>
   );
 };
-const Logo = () => (
-  <>
-    <a href="/">
-      <img
-        src="https://cdn.dribbble.com/users/333713/screenshots/16263237/media/e13f7d89feec1544447e4e76f09836a5.png?compress=1&resize=400x300&vertical=center"
-        alt="Logo"
-        className="logo"
-      />
-    </a>
-    {/* <h1 className="title">FlashFood</h1> */}
-  </>
-);
-const AppHeader = () => (
-  <div className="header">
-    <Logo />
-    <div className="navbar">
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact Us</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
+/*
+AppLayout
+  -header
+    -logo name
+    -navbar
+    -cart
+  -body 
+    -search
+    -cards
+    -menus
+  -footer
+    -links
+*/
 
 /**
  Restraurants card
@@ -129,35 +120,6 @@ const AppHeader = () => (
   - tag
  */
 
-const restraurantList = [
-  {
-    id:1,
-    name: "Burger King",
-    price: "100",
-    rating: "4.2 ",
-    image:
-      "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
-    cuisine: ["Veg-Burger", "Nonveg", "egg -Burger"],
-  },
-  {
-    id:2,
-    name: "Pizza Hut",
-    price: "150",
-    rating: "4.4 ",
-    image:
-      "https://thumbs.dreamstime.com/b/heart-shape-various-vegetables-fruits-healthy-food-concept-isolated-white-background-140287808.jpg",
-    cuisine: ["Veg-kadhai", "veg-Bhaji", "palak panner"],
-  },
-  {
-    id:3,
-    name: "Dominoz",
-    price: "50",
-    rating: "3.4 ",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXqXo9UyZpyi08p03nofaS2MxRb_ScxqZ9ZMjNyvYM&s",
-    cuisine: ["Veg-kadhai", "veg-Bhaji", "palak panner"],
-  },
-];
 // console.log(Burger[0].cuisine )
 // Burger.map(cuisine=>{console.log(cuisine)})
 const RestraurantCardNormalprop = (props) => {
@@ -170,45 +132,12 @@ const RestraurantCardNormalprop = (props) => {
         {"Price -" + props.restraurant?.price} <span>&#8377;</span>{" "}
       </h4>
       <h4>{props.restraurant?.rating} Stars</h4>
-      <p><strong>Cuisine -</strong>{props.restraurant?.cuisine.join(",")} </p>
+      <p>
+        <strong>Cuisine -</strong>
+        {props.restraurant?.cuisine.join(",")}{" "}
+      </p>
     </div>
   );
 };
 
-// Propes ==> properties >> way to send data with destructuring=>{name,price,image,rating,cuisine}
-const RestraurantCard = ({name,price,image,rating,cuisine})=>{
-  return (
-    <div className="card">
-    <img src={image} alt="panner kadhai" />
-    <h3>{"Menu -" + name}</h3>
-    <h4>
-      {"Price -" + price} <span>&#8377;</span>{" "}
-    </h4>
-    <h4>{rating} Stars</h4>
-    <p><strong>Cuisine -</strong>{cuisine.join(", ")} </p>
-  </div>
-  )
-}
-
-const AppBody = () => {
-  return (
-    <div className="restro-list">
-      {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
-      {/* <RestraurantCard restraurant={restraurantList[0]} /> method 2 <RestraurantCard restraurant={restraurantList[1]} />
-      <RestraurantCard restraurant={restraurantList[2]} />*/}
-      {/* <RestraurantCard {...restraurantList[0]} />
-      <RestraurantCard {...restraurantList[1]} />
-      <RestraurantCard {...restraurantList[2]} /> */}
-      {
-        restraurantList.map((restro) =>{
-          return <RestraurantCard {...restro} key={restro.id}/>
-        })
-      }
-      
-    </div>
-  );
-};
-const AppFooter = () => {
-  return <h3>Footer</h3>;
-};
 root.render(<AppLayout />); // way to render the react component
