@@ -50,20 +50,23 @@ const AppBody = () => {
           Search
         </button>
       </div>
-      <div className="restro-list">
-        {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
-        {/* <RestraurantCard restraurant={restraurantList[0]} /> method 2 <RestraurantCard restraurant={restraurantList[1]} />
+      <div className="container">
+        <div className="restro-list">
+          {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
+          {/* <RestraurantCard restraurant={restraurantList[0]} /> method 2 <RestraurantCard restraurant={restraurantList[1]} />
         <RestraurantCard restraurant={restraurantList[2]} />*/}
-        {/* <RestraurantCard {...restraurantList[0]} />
+          {/* <RestraurantCard {...restraurantList[0]} />
         <RestraurantCard {...restraurantList[1]} />
         <RestraurantCard {...restraurantList[2]} /> */}
-        {restrolist.map((restro) => {
-          return <RestraurantCard {...restro} key={restro.id} />;
-        })}
-        {/* {restraurantList.map((restro) => {
+          {restrolist.map((restro) => {
+            return <RestraurantCard {...restro} key={restro.id} />;
+          })}
+          {/* {restraurantList.map((restro) => {
           return <RestraurantCard {...restro} key={restro.id} />;
         })} */}
+        </div>
       </div>
+
       {/* <h1
         onClick={() => {
           if (toggle === "Toggle Me") {
@@ -72,7 +75,7 @@ const AppBody = () => {
             setToggle("Toggle Me");
           }
         }}
-      >
+        >
         {toggle}
       </h1> */}
     </>

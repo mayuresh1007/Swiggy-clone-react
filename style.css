@@ -1,17 +1,26 @@
 body {
     /* background-color: rgb(244, 236, 227); */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', 'sans-serif';
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    height: 100vh;
+    /* margin: 0; */
+    background-color: #f0f0f0d3;
 }
 
 .logo {
     width: 100px;
-    height: 75px;
+    height: 70px;
+    border-radius: 5px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: antiquewhite;
 }
 
 .navbar>ul {
@@ -25,22 +34,54 @@ body {
     padding: 10px;
     font-size: large;
     font-weight: bold;
+    color: rgb(211, 85, 85);
 }
 
 .card {
     width: 200px;
-    border: 1px solid rgb(238, 179, 130);
-    border-radius: 10px;
     margin: 10px;
     padding: 10px;
-    background-color: rgb(254, 174, 174);
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Use an rgba color to create a transparent effect */
+    backdrop-filter: blur(15px);
+    /* Apply the blur effect to create the glassy look */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* Add a subtle box shadow for the card */
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .card>img {
     width: 100%;
 }
 
-.restro-list{
+.restro-list {
     display: flex;
     flex-wrap: wrap;
+}
+
+.btn {
+    background-color: rgba(255, 140, 0, 0.62);
+    border-radius: 4px;
+}
+
+.search-input {
+    margin: 10px 10px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+h3,
+h4 {
+    margin: auto;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,9 +1,11 @@
-// Propes ==> properties >> way to send data with destructuring=>{name,price,image,rating,cuisine}
+// Props ==> properties >> way to send data with destructuring=>{name,price,image,rating,cuisine}
 const RestraurantCard = ({name,price,image,rating,cuisine})=>{
     return (
       <div className="card">
       <img src={image} alt="panner kadhai" />
+      <hr />
       <h3>{"Menu -" + name}</h3>
+      <hr />
       <h4>
         {"Price -" + price} <span>&#8377;</span>{" "}
       </h4>
