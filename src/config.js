@@ -30,4 +30,22 @@ export const restraurantList = [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXqXo9UyZpyi08p03nofaS2MxRb_ScxqZ9ZMjNyvYM&s",
       cuisine: ["Veg-kadhai", "veg-Bhaji", "palak panner"],
     },
+    {
+      id:4,
+      name: "Burger King",
+      price: "100",
+      rating: "3.2 ",
+      image:
+        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
+      cuisine: ["Veg-Burger", "Nonveg", "egg -Burger"],
+    },
+    {
+      id:5,
+      name: "Burger King",
+      price: "110",
+      rating: "4.1 ",
+      image:
+        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
+      cuisine: ["Veg-Burger", "Nonveg", "egg -Burger"],
+    },
   ];

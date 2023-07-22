@@ -71,4 +71,5 @@ https://github.com/acdlite/react-fiber-architecture
 getting teh filterdata
 and then its render 
 
-
+## extension for cors 
+Allow CORS: Access-Control-Allow-Origin
