@@ -68,8 +68,15 @@ https://github.com/acdlite/react-fiber-architecture
 
 # Logic
 
-getting teh filterdata
+getting the filterdata
 and then its render 
+fetch()
+data.json()
+monolith /microservices
+useEffect
+
+
 
 ## extension for cors 
 Allow CORS: Access-Control-Allow-Origin
+

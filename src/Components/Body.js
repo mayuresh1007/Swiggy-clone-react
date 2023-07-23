@@ -6,7 +6,7 @@ import Shimmerui from "./ShimmerUI";
 
 function filterData(searchText, allrestrolist) {
   const FData = allrestrolist.filter((restro) =>
-    restro?.name?.toLowerCase().includes(searchText)
+    restro?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
   );
   return FData;
 }
@@ -16,7 +16,6 @@ const AppBody = () => {
   // const searchtext ;
   const [searchText, setSearchText] = useState(""); // to create the local state variable // [variable name , function to update the variable]
   // useStae returns the array
-
   // search functionality
   const [allrestrolist, setAllRestroList] = useState([]);
   const [Filteredrestrolist, setFilteredrestrolist] = useState([]);
@@ -47,13 +46,13 @@ const AppBody = () => {
     setFilteredrestrolist(json?.data?.cards[2]?.data?.data?.cards);
     // console.log(restrolist)
   }
-
   console.log("render");
 
-  //Early return
-  if (!allrestrolist) return (null);
-// when filetr is not found
-  if (Filteredrestrolist?.length === 0) return <h1>Not Found!!!</h1>;
+  //Early return not render component
+  if (!allrestrolist) return null;
+
+  // when filetr is not found
+  // if (Filteredrestrolist?.length === 0) return <h3>Not Found by filter!!!</h3>;
 
   return allrestrolist?.length === 0 ? (
     // return restrolist.length === 0 ? (
@@ -88,16 +87,19 @@ const AppBody = () => {
       </div>
       <div className="container">
         <div className="restro-list">
+          {Filteredrestrolist?.length === 0 ? (
+            <h3>Not Found by filter!!!</h3>
+          ) : (
+            Filteredrestrolist.map((restro) => {
+              return <RestraurantCard {...restro} key={restro?.data?.id} />;
+            })
+          )}
           {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
           {/* <RestraurantCard restraurant={restraurantList[0]} /> method 2 <RestraurantCard restraurant={restraurantList[1]} />
           <RestraurantCard restraurant={restraurantList[2]} />*/}
           {/* <RestraurantCard {...restraurantList[0]} />
           <RestraurantCard {...restraurantList[1]} />
           <RestraurantCard {...restraurantList[2]} /> */}
-
-          {Filteredrestrolist.map((restro) => {
-            return <RestraurantCard {...restro} key={restro?.data?.id} />;
-          })}
         </div>
       </div>
 
