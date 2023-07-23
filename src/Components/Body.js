@@ -56,7 +56,11 @@ const AppBody = () => {
 
   return allrestrolist?.length === 0 ? (
     // return restrolist.length === 0 ? (
+      <>
+    <div className="container">
     <Shimmerui />
+    </div>
+    </>
   ) : (
     <>
       <div className="search-container">

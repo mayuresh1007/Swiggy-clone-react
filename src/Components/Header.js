@@ -1,16 +1,16 @@
-import { useState } from "react";
+// import { useState } from "react";
+import logo from "../../Newlogo.png"
 
 const Logo = () => (
-  <>
-    {/* <a href="/"> */}
-    <img
+  <div >
+    {/* <img
       src="https://cdn.dribbble.com/users/333713/screenshots/16263237/media/e13f7d89feec1544447e4e76f09836a5.png?compress=1&resize=400x300&vertical=center"
       alt="LogoOfApp"
       className="logo"
-    />
-    {/* </a> */}
-    {/* <h1 className="title">FlashFood</h1> */}
-  </>
+    /> */}
+    <img src={logo} alt="logo" className="logo" />
+    
+  </div>
 );
 
 const AppHeader = () => (

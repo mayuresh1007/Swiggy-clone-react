@@ -19,6 +19,7 @@ const footerStyle = {
   // backgroundColor: '#f0f0f0',
   padding: '10px',
   textAlign: 'center',
+  margin:"50px auto"
 };
 
 export default AppFooter;

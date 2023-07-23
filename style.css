@@ -5,13 +5,14 @@ body {
     /* justify-content: center;
     align-items: center; */
     height: 100vh;
-    /* margin: 0; */
-    background-color: #f0f0f0d3;
+    /* margin: 0px;
+    padding: 0px; */
+    /* background-color: #f0f0f0d3; */
 }
 
 .logo {
     width: 100px;
-    height: 70px;
+    height: 75px;
     border-radius: 5px;
 }
 
@@ -20,9 +21,16 @@ body {
     justify-content: space-between;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
+@media screen and (max-width: 320px) {
+    /* CSS for mobile devices */
+    .header{
+    
+        justify-content: revert;
+    }
+  }
 .navbar>ul {
     display: flex;
     list-style-type: none;
@@ -48,7 +56,7 @@ body {
     border-radius: 10px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     /* Add a subtle box shadow for the card */
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
 .card>img {
@@ -58,30 +66,59 @@ body {
 .restro-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center
 }
 
 .btn {
-    background-color: rgba(255, 140, 0, 0.62);
-    border-radius: 4px;
+    /* background-color: rgba(255, 140, 0, 0.62);
+    border-radius: 4px; */
+    /* background-color: rgba(255, 140, 0, 0.62); */
+    background-color: rgba(248, 142, 124, 0.864);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .search-input {
-    margin: 10px 10px;
+    /* margin: 10px 10px; */
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .search-container {
-    display: flex;
+    /* display: flex;
     justify-content: center;
+    align-items: center; */
+    display: flex;
     align-items: center;
-    
+    max-width: 300px;
+    margin: 5px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    /* background-color: #f7f7f7; */
+
 }
 
 h3,
 h4 {
     margin: auto;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.spinner {
+    margin-top: 50px;
 }

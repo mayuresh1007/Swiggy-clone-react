@@ -1,6 +1,6 @@
 // Props ==> properties >> way to send data with destructuring=>{name,price,image,rating,cuisine}
 const RestraurantCard = (props) => {
-  // console.log(props)
+  console.log(props)
   return (
     <div className="card">
       <img
@@ -11,14 +11,14 @@ const RestraurantCard = (props) => {
         alt={props?.data?.name}
       />
       <hr />
-      <h3>{"Menu -" + props?.data?.name}</h3>
+      <h3>{ props?.data?.name}</h3>
       <hr />
-      <h4>
-        {"Delivery Time -" + props?.data?.deliveryTime} &#x1F550;Minutes
-      </h4>
-      <h4>{props?.data?.veg} </h4>
-      <h4>{props?.data?.avgRating} &#9733;</h4>
-      {/* <p><strong>Cuisine -</strong>{props?.data?.cuisine.join(", ")} </p> */}
+      <span>
+      <strong>Delivery Time:- </strong>{ props?.data?.deliveryTime} &#x1F550;Minutes
+      </span>
+      <h4>{props?.data?.veg}</h4>
+      <span>&#9733; {props?.data?.avgRating} </span>
+      <p>{props?.data?.cuisines?.join(", ")} </p>
     </div>
   );
 };
