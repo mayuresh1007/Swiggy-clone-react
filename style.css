@@ -54,7 +54,6 @@ body {
     backdrop-filter: blur(15px);
     /* Apply the blur effect to create the glassy look */
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     /* Add a subtle box shadow for the card */
     box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
 }
@@ -73,7 +72,7 @@ body {
     /* background-color: rgba(255, 140, 0, 0.62);
     border-radius: 4px; */
     /* background-color: rgba(255, 140, 0, 0.62); */
-    background-color: rgba(248, 142, 124, 0.864);
+    background-color: #f88e7cdc;
     color: #fff;
     border: none;
     padding: 8px 15px;
@@ -119,6 +118,36 @@ h4 {
     align-items: center;
 }
 
-.spinner {
-    margin-top: 50px;
-}
+.shimmer{
+    margin: auto;
+    /* margin-top: 80px; */
+    padding: 10px;
+    width: 190px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 80%
+      ),
+      lightgray;
+    background-repeat: repeat-y;
+    background-size: 50px 500px;
+    background-position: 0 0;
+    animation: shine 1s infinite;
+  }
+  
+  @keyframes shine {
+    to {
+      background-position: 100% 0;
+    }
+  }
+
+  .search-shimmer{
+    height: 44px;
+    width: 312px;
+    background-color: #ccc;
+  }

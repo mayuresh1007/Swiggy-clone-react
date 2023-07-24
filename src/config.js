@@ -1,6 +1,7 @@
 const IMG_CDN_URL = "xyz"
 
 // this is used the named export bcoz its need only for increase the efficiency
+URL_REST_DETAILS = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=?id&catalog_qa=undefined&submitAction=ENTER"
 
 export const restraurantList = [
     {

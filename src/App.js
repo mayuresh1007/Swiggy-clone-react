@@ -21,79 +21,26 @@ import ReactDOM from "react-dom/client";
 import AppHeader from "./Components/Header";
 import AppFooter from "./Components/Footer";
 import AppBody from "./Components/Body";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+import Errorpage from "./Components/Errorpage";
+import Cart from "./Components/Cart";
+import RestraurantMenu from "./Components/RestraurantMenu";
+
+import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 
 const notes = ReactDOM.createRoot(document.getElementById("notes"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // React Element
 
-const head1 = React.createElement(
-  "h1",
-  { id: "title", key: "1" },
-  "Hi mayuresh Welcome to Namaste React by akshay"
-);
-// console.log(head1); // returns the js object this means any object is a react element
-
-const head2 = React.createElement(
-  "h2",
-  { id: "title", key: "2" },
-  "Use of parcel to bundel and Parcel is a Bundler and create the react app from scratch"
-);
-const head3 = (
-  <h3 id="titile" key="3">
-    This is also react Element
-  </h3>
-);
-
-const container = React.createElement(
-  "div",
-  {
-    id: "container",
-  },
-  [head1, head2, head3]
-);
-
-// React functional component
-// const Title = () => {
-//   return <h1>Foodora</h1>;
-// };
-const Title = () => <h1>Foodora</h1>;
-
-const HeaderComponent = () => {
-  // return <h1>First functional component</h1>;
-  return (
-    // react fragment
-    <>
-      {/* {Title()} // method one to call the functional component */}
-      {/* <Title /> // method two and good practice to call the functional component */}
-      <Title />
-      {container}
-      <h1>Functional component</h1>
-      <h2>h2 element</h2>
-    </>
-  );
-};
-
-const HeaderComponent2 = () => (
-  // react fragment
-  <>
-    <h1>component</h1>
-    <h2>component</h2>
-  </>
-);
-// root.render(container); // way to render the react element
-// notes.render(<HeaderComponent />); // way to render the react component
-
-/* <React.Fragment></React.Fragment> React fragment is a component which is exported by react
-<React.Fragment></React.Fragment> ==>> <></>
-
-*/
-
 const AppLayout = () => {
   return (
     <React.Fragment>
       <AppHeader />
-      <AppBody />
+      {/* <AppBody /> */}
+      {/* // Outlet will filled with children */}
+      <Outlet/>
       <AppFooter />
     </React.Fragment>
   );
@@ -111,33 +58,38 @@ AppLayout
   -footer
     -links
 */
+const appRoute = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Errorpage />,
+    children: [
+      {
+        path: "/",
+        element: <AppBody />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+        
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+        
+      },
+      {
+        path:"/restro/:id",
+        element:<RestraurantMenu/>
 
-/**
- Restraurants card
-  - Menu
-  - Price
-  - category
-  - tag
- */
+      }
+    ],
+  },
+]);
 
-// console.log(Burger[0].cuisine )
-// Burger.map(cuisine=>{console.log(cuisine)})
-const RestraurantCardNormalprop = (props) => {
-  console.log(props);
-  return (
-    <div className="card">
-      <img src={props.restraurant?.image} alt="panner kadhai" />
-      <h3>{"Menu -" + props.restraurant?.name}</h3>
-      <h4>
-        {"Price -" + props.restraurant?.price} <span>&#8377;</span>{" "}
-      </h4>
-      <h4>{props.restraurant?.rating} Stars</h4>
-      <p>
-        <strong>Cuisine -</strong>
-        {props.restraurant?.cuisine.join(",")}{" "}
-      </p>
-    </div>
-  );
-};
-
-root.render(<AppLayout />); // way to render the react component
+root.render(<RouterProvider router={appRoute} />); // way to render the react component
+//RouterProvider is a component which is provided by the react-router-dom

@@ -53,13 +53,11 @@ const AppBody = () => {
 
   // when filetr is not found
   // if (Filteredrestrolist?.length === 0) return <h3>Not Found by filter!!!</h3>;
-
+  
   return allrestrolist?.length === 0 ? (
     // return restrolist.length === 0 ? (
-      <>
-    <div className="container">
-    <Shimmerui />
-    </div>
+    <>
+        <Shimmerui />
     </>
   ) : (
     <>

@@ -1,27 +1,25 @@
 // import { useState } from "react";
-import logo from "../../Newlogo.png"
-
-const Logo = () => (
-  <div >
-    {/* <img
-      src="https://cdn.dribbble.com/users/333713/screenshots/16263237/media/e13f7d89feec1544447e4e76f09836a5.png?compress=1&resize=400x300&vertical=center"
-      alt="LogoOfApp"
-      className="logo"
-    /> */}
-    <img src={logo} alt="logo" className="logo" />
-    
-  </div>
-);
+import Logo from "./Logo";
+import { Link } from "react-router-dom";
 
 const AppHeader = () => (
   <div className="header">
     <Logo />
     <div className="navbar">
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact Us</li>
-        <li>Cart</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact Us</Link>
+        </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
+ 
       </ul>
     </div>
   </div>

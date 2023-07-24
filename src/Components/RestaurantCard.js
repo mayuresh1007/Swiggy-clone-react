@@ -1,6 +1,6 @@
 // Props ==> properties >> way to send data with destructuring=>{name,price,image,rating,cuisine}
 const RestraurantCard = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <div className="card">
       <img
