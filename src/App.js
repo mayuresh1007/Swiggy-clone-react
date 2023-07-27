@@ -22,12 +22,15 @@ import AppHeader from "./Components/Header";
 import AppFooter from "./Components/Footer";
 import AppBody from "./Components/Body";
 import About from "./Components/About";
+import AboutClass from "./Components/About";
 import Contact from "./Components/Contact";
 import Errorpage from "./Components/Errorpage";
 import Cart from "./Components/Cart";
 import RestraurantMenu from "./Components/RestraurantMenu";
 
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
+import ProfileFunction from "./Components/ProfileFunction";
+import ProfileClass from "./Components/ProfileCLassComp";
 
 const notes = ReactDOM.createRoot(document.getElementById("notes"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -70,7 +73,16 @@ const appRoute = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        // element: <About />,
+        element: <AboutClass />,
+        children:[{
+          path:"profile",
+          element:<ProfileFunction/>
+        },
+        {
+          path:"profileclass",
+          element:<ProfileClass/>
+        }]
       },
       {
         path: "/contact",

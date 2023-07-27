@@ -1,7 +1,14 @@
-const IMG_CDN_URL = "xyz"
+export const IMG_CDN_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
 // this is used the named export bcoz its need only for increase the efficiency
-URL_REST_DETAILS = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=?id&catalog_qa=undefined&submitAction=ENTER"
+export const URL_REST_DETAILS = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=?123&catalog_qa=undefined&submitAction=ENTER"
+
+export const RestaurantList_URL ="https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&page_type=DESKTOP_WEB_LISTING"
+
+export const GET_RESTAURANTS_LIST = "https://instafood.onrender.com/api/restaurants?lat=12.9351929&lng=77.62448069999999";
+export const GET_RESTAURANT_MENU = "https://instafood.onrender.com/api/menu?lat=12.9351929&lng=77.62448069999999&restaurantId=";
+
+export const Menu_List = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=12824"
 
 export const restraurantList = [
     {
@@ -50,3 +57,5 @@ export const restraurantList = [
       cuisine: ["Veg-Burger", "Nonveg", "egg -Burger"],
     },
   ];
+
+

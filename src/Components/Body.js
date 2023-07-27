@@ -1,8 +1,9 @@
 import RestraurantCard from "./RestaurantCard";
-// import { restraurantList } from "../config";
+import { RestaurantList_URL } from "../config";
 
 import { useEffect, useState } from "react"; // named import from react library
 import Shimmerui from "./ShimmerUI";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, allrestrolist) {
   const FData = allrestrolist.filter((restro) =>
@@ -38,9 +39,7 @@ const AppBody = () => {
   // async function for fetch data
 
   async function getData() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RestaurantList_URL);
     const json = await data.json();
     setAllRestroList(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredrestrolist(json?.data?.cards[2]?.data?.data?.cards);
@@ -53,11 +52,11 @@ const AppBody = () => {
 
   // when filetr is not found
   // if (Filteredrestrolist?.length === 0) return <h3>Not Found by filter!!!</h3>;
-  
+
   return allrestrolist?.length === 0 ? (
     // return restrolist.length === 0 ? (
     <>
-        <Shimmerui />
+      <Shimmerui />
     </>
   ) : (
     <>
@@ -93,7 +92,11 @@ const AppBody = () => {
             <h3>Not Found by filter!!!</h3>
           ) : (
             Filteredrestrolist.map((restro) => {
-              return <RestraurantCard {...restro} key={restro?.data?.id} />;
+              return (
+                <Link to={"/restro/" + restro?.data?.id} key={restro?.data?.id} className="link">
+                  <RestraurantCard {...restro} />
+                </Link>
+              );
             })
           )}
           {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
