@@ -31,8 +31,13 @@ import RestraurantMenu from "./Components/RestraurantMenu";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import ProfileFunction from "./Components/ProfileFunction";
 import ProfileClass from "./Components/ProfileCLassComp";
+import RestraurantCard from "./Components/RestaurantCard";
+// import withNetworkCheck from './Components/withNetworkCheck'; // network error
 
-const notes = ReactDOM.createRoot(document.getElementById("notes"));
+
+
+
+// const notes = ReactDOM.createRoot(document.getElementById("notes"));
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // React Element
@@ -96,12 +101,18 @@ const appRoute = createBrowserRouter([
       },
       {
         path:"/restro/:id",
-        element:<RestraurantMenu/>
+        element:<RestraurantMenu/>, // main 
+        // element:<RestraurantCard/>,// try
+        // children:[{
+        //   path:"menus/:name",
+        //   element:<RestraurantMenu/>
+        // }]
 
       }
     ],
   },
 ]);
+
 
 root.render(<RouterProvider router={appRoute} />); // way to render the react component
 //RouterProvider is a component which is provided by the react-router-dom

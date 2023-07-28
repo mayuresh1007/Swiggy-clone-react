@@ -3,26 +3,27 @@ import Logo from "./Logo";
 import { Link } from "react-router-dom";
 
 const AppHeader = () => (
-  <div className="header">
+  <>
+    <div className="header">
     <Logo />
-    <div className="navbar">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact Us</Link>
-        </li>
-        <li>
-          <Link to="/cart">Cart</Link>
-        </li>
- 
-      </ul>
+      <div className="navbar">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </>
 );
 
 export default AppHeader; // this is called export default

@@ -18,6 +18,8 @@
 
 import React from "react";
 import ProfileClass from "./ProfileCLassComp";
+import withNetworkCheck from './withNetworkCheck'; // network error
+
 
 class AboutClass extends React.Component {
   constructor(props) {
@@ -48,7 +50,10 @@ class AboutClass extends React.Component {
   }
 }
 
-export default AboutClass;
+// export default AboutClass;
+export default withNetworkCheck(AboutClass)
+
+
 
 /**
  * flow of called for two child components

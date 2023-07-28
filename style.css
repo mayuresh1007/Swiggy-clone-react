@@ -18,9 +18,10 @@ body {
 
 .header {
     display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
+    justify-content:space-between;
+    border: 1px solid rgba(224, 20, 20, 0.881);
     border-radius: 5px;
+    align-items: center;
     /* background-color: antiquewhite; */
 }
 
@@ -41,10 +42,13 @@ body {
 }
 
 .navbar>ul>li {
+    
     padding: 10px;
     font-size: large;
     font-weight: bold;
     color: rgb(211, 85, 85);
+    text-decoration: none;
+    list-style-type: none;
 }
 
 .card {
@@ -62,6 +66,8 @@ body {
 
 .card>img {
     width: 100%;
+    height: 150px;
+    width: 190px;
 }
 
 .restro-list {
@@ -108,7 +114,9 @@ body {
     /* background-color: #f7f7f7; */
 
 }
-
+h1{
+    color: rgb(225, 121, 138);
+}
 h3,
 h4 {
     margin: auto;
@@ -163,3 +171,4 @@ h4 {
     width:"150px";
     height:"150px"
 }
+

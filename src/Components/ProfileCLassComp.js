@@ -24,15 +24,14 @@ class ProfileClass extends React.Component {
     const json = await data.json();
     this.setState({ Githubprofile: json });
     console.log("component-Did-Mount", this.props.name); // third called
-    this.timer= setInterval(() => {
-      console.log("setinterval in profile class compo")
-    }, 1000);
+    // this.timer = setInterval(() => {
+    //   console.log("setinterval in profile class compo");
+    // }, 1000);
   }
 
   // step -4 updating / called after every next render
 
   componentDidUpdate() {
-    
     console.log("component-Did-Update called after every next render");
   }
   // advanced concept how the compoDidUdate is same for calling the dependency array in useEffect in fun compo
@@ -48,10 +47,13 @@ class ProfileClass extends React.Component {
   //   }
   //   console.log("component-Did-Update called after every next render");
   // }
-  // step 5 - componentWillUnmout()
+  // step 5 - componentWillUnmout() // used for clean up thisng like settimeout,setinterval
   componentWillUnmount() {
-    clearInterval(this.timer)
+    // clearInterval(this.timer);
     console.log("component-Will-Unmount");
+    console.log(
+      "clean-up component will unmount kind of called when component distroy means the change of the component / page"
+    );
   }
 
   // imp step 2

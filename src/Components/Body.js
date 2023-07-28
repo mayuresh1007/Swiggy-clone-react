@@ -1,14 +1,17 @@
 import RestraurantCard from "./RestaurantCard";
-import { RestaurantList_URL } from "../config";
+import { RestaurantList_URL, RestaurantList_URLv2 } from "../config";
 
 import { useEffect, useState } from "react"; // named import from react library
 import Shimmerui from "./ShimmerUI";
 import { Link } from "react-router-dom";
+import withNetworkCheck from "./withNetworkCheck"; // network error
 
 function filterData(searchText, allrestrolist) {
-  const FData = allrestrolist.filter((restro) =>
-    restro?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
+  const FData = allrestrolist.filter((restro) => {
+    const name = restro.info.name
+      .toLowerCase()
+      .includes(searchText.toLowerCase());
+  });
   return FData;
 }
 
@@ -39,11 +42,18 @@ const AppBody = () => {
   // async function for fetch data
 
   async function getData() {
-    const data = await fetch(RestaurantList_URL);
+    const data = await fetch(RestaurantList_URLv2);
     const json = await data.json();
-    setAllRestroList(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredrestrolist(json?.data?.cards[2]?.data?.data?.cards);
-    // console.log(restrolist)
+    // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
+    // setAllRestroList(json?.data?.cards[2]?.data?.data?.cards);
+    // // setFilteredrestrolist(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestroList(
+      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredrestrolist(
+      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    // console.log("allrestrolist",allrestrolist)
   }
   console.log("render");
 
@@ -68,7 +78,8 @@ const AppBody = () => {
           value={searchText}
           // onChange={(e) => console.log( e.target.value )}
           onChange={(e) => {
-            // e.target.value // what ever writing in input
+            const word = e.target.value; // what ever writing in input
+            console.log(word);
             setSearchText(e.target.value);
           }}
         />
@@ -92,9 +103,15 @@ const AppBody = () => {
             <h3>Not Found by filter!!!</h3>
           ) : (
             Filteredrestrolist.map((restro) => {
+              // console.log(restro);
+              // const{cloudinaryImageId}=restro.info
               return (
-                <Link to={"/restro/" + restro?.data?.id} key={restro?.data?.id} className="link">
-                  <RestraurantCard {...restro} />
+                <Link
+                  to={"/restro/" + restro?.info?.id}
+                  key={restro?.info?.id}
+                  className="link"
+                >
+                  <RestraurantCard {...restro?.info} />
                 </Link>
               );
             })
@@ -123,4 +140,5 @@ const AppBody = () => {
   );
 };
 
-export default AppBody;
+// export default AppBody;
+export default withNetworkCheck(AppBody); // for network error

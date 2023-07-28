@@ -5,10 +5,15 @@ export const URL_REST_DETAILS = "https://www.swiggy.com/dapi/menu/pl?page-type=R
 
 export const RestaurantList_URL ="https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&page_type=DESKTOP_WEB_LISTING"
 
+export const RestaurantList_URLv2="https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5204303&lng=73.8567437&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+
+export const Manu_LIST_v2 = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=243625&catalog_qa=undefined&submitAction=ENTER`
+
+
 export const GET_RESTAURANTS_LIST = "https://instafood.onrender.com/api/restaurants?lat=12.9351929&lng=77.62448069999999";
 export const GET_RESTAURANT_MENU = "https://instafood.onrender.com/api/menu?lat=12.9351929&lng=77.62448069999999&restaurantId=";
 
-export const Menu_List = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=12824"
+export const Menu_List = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=`
 
 export const restraurantList = [
     {
