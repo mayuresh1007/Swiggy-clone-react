@@ -18,7 +18,7 @@
 
 import React from "react";
 import ProfileClass from "./ProfileCLassComp";
-import withNetworkCheck from './withNetworkCheck'; // network error
+import withNetworkCheck from '../utils/withNetworkCheck'; // network error
 
 
 class AboutClass extends React.Component {

@@ -1,36 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { IMG_CDN_URL, RestaurantList_URL, Menu_List } from "../config";
 import Shimmerui from "./ShimmerUI";
-
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 const RestraurantMenu = (props) => {
   // how to make read dynamic URL params
   const params = useParams();
   // console.log(params);
   // console.log(props);
-  const { id, name } = params;
+  const { id } = params;
+  const menulist = useRestaurantMenu(id);
 
-  const [menulist, setMenuList] = useState();
-
-  // console.log(res)
-  useEffect(() => {
-    getInfo();
-  }, []);
-
-  async function getInfo() {
-    // console.log(id);
-    const data = await fetch(
-      // `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
-      `${Menu_List}${id}`
-    );
-    const json = await data.json();
-    // console.log(json)
-    console.log(json);
-    setMenuList(
-      json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-        .itemCards
-    );
-  }
   if (!menulist) return null;
   return menulist?.length === 0 ? (
     <>
@@ -38,7 +18,13 @@ const RestraurantMenu = (props) => {
     </>
   ) : (
     <>
-      <h1 className="restro-list"> !! Menu Card !!</h1>
+      <div className="container">
+        <h1> !! Menu Card !!</h1>
+        <Link to="/">
+          <button className="btn">Back</button>
+        </Link>
+      </div>
+
       <div className="restro-list">
         {menulist?.map((item) => {
           // console.log(item);

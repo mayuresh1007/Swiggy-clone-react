@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const AppHeader = () => (
   <>
-    <div className="header">
+    <div className="header link">
     <Logo />
-      <div className="navbar">
+      <div className="navbar ">
         <ul>
           <li>
             <Link to="/">Home</Link>

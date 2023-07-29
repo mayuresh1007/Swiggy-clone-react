@@ -4,19 +4,16 @@ import { RestaurantList_URL, RestaurantList_URLv2 } from "../config";
 import { useEffect, useState } from "react"; // named import from react library
 import Shimmerui from "./ShimmerUI";
 import { Link } from "react-router-dom";
-import withNetworkCheck from "./withNetworkCheck"; // network error
+import withNetworkCheck from "../utils/withNetworkCheck"; // network error
 
-function filterData(searchText, allrestrolist) {
-  const FData = allrestrolist.filter((restro) => {
-    const name = restro.info.name
-      .toLowerCase()
-      .includes(searchText.toLowerCase());
-  });
-  return FData;
-}
+import {filterData} from '../utils/helper';
+import useRestaurantCard from "../utils/useRestaurantCard";
 
 const AppBody = () => {
-  //SearchText is a local state variable
+ 
+  // const[allrestrolist,Filteredrestrolist,searchText] = useRestaurantCard();
+  console.log("render");
+ //SearchText is a local state variable
   // const searchtext ;
   const [searchText, setSearchText] = useState(""); // to create the local state variable // [variable name , function to update the variable]
   // useStae returns the array
@@ -55,8 +52,6 @@ const AppBody = () => {
     );
     // console.log("allrestrolist",allrestrolist)
   }
-  console.log("render");
-
   //Early return not render component
   if (!allrestrolist) return null;
 
