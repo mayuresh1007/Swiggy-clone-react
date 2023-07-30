@@ -38,6 +38,8 @@ const Instamart = lazy(() => import("./Components/Instamart")); // this is a dyn
 // code yaychy aadhich react try to render thats why error thrown
 // to candle this case --> Suspense from react library
 
+// dont do in anather component example bellow
+
 // import withNetworkCheck from './Components/withNetworkCheck'; // network error
 
 // const notes = ReactDOM.createRoot(document.getElementById("notes"));
@@ -46,6 +48,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // React Element
 
 const AppLayout = () => {
+  // const Instamart = lazy(() => import("./Components/Instamart")); //  dont do this // coz lazy load for every render cycle 
   return (
     <React.Fragment>
       <AppHeader />

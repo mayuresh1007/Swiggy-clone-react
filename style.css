@@ -112,7 +112,10 @@ h3,
 h4 {
     margin: auto;
 }
-
+pre {
+    white-space: pre-wrap; /* Preserve line breaks and wrap long lines */
+    font-family: "Courier New", monospace; /* Use a monospaced font for the code */
+}
 .container {
     display: flex;
     justify-content: center;

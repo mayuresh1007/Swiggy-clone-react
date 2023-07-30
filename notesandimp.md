@@ -85,3 +85,16 @@ chunking
 code splitting
 Dynamic bundling
 Lazy loading
+
+// import Instamart from "./Components/Instamart";//  normal import
+const Instamart = lazy(() => import("./Components/Instamart")); // this is a dynamic import lazy loading , on dimand loaing, code splitting ,bundle chunking
+// on demand loadig react will suspend bcoz there is no any bundle
+// On demand loading => upon render => suspend loading
+// code yaychy aadhich react try to render thats why error thrown
+// to candle this case --> Suspense from react library
+
+const AppLayout = () => {
+  // const Instamart = lazy(() => import("./Components/Instamart")); //  dont do this // coz lazy load for every render cycle 
+  }
+
+  make import on the top lazy loading
