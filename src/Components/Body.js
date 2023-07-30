@@ -5,25 +5,16 @@ import { useEffect, useState } from "react"; // named import from react library
 import Shimmerui from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import withNetworkCheck from "../utils/withNetworkCheck"; // network error
-
-import {filterData} from '../utils/helper';
-import useRestaurantCard from "../utils/useRestaurantCard";
+import { filterData } from "../utils/helper";
 
 const AppBody = () => {
- 
-  // const[allrestrolist,Filteredrestrolist,searchText] = useRestaurantCard();
-  console.log("render");
- //SearchText is a local state variable
+  //SearchText is a local state variable
   // const searchtext ;
   const [searchText, setSearchText] = useState(""); // to create the local state variable // [variable name , function to update the variable]
   // useStae returns the array
   // search functionality
   const [allrestrolist, setAllRestroList] = useState([]);
   const [Filteredrestrolist, setFilteredrestrolist] = useState([]);
-
-  // toggle example
-  // const [toggle, setToggle] = useState("Toggle Me");
-  // console.log("render()")
 
   // UseEffect hook -  to avaiding the rerender at every api call and then update the props / state
   // empty dependancy array then called => once after render called
@@ -41,9 +32,6 @@ const AppBody = () => {
   async function getData() {
     const data = await fetch(RestaurantList_URLv2);
     const json = await data.json();
-    // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-    // setAllRestroList(json?.data?.cards[2]?.data?.data?.cards);
-    // // setFilteredrestrolist(json?.data?.cards[2]?.data?.data?.cards);
     setAllRestroList(
       json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -52,11 +40,20 @@ const AppBody = () => {
     );
     // console.log("allrestrolist",allrestrolist)
   }
+
+  // HandleSearch
+  function handleSearch() {
+    console.log(searchText);
+    const filteredData = filterData(searchText, allrestrolist);
+    console.log("filteredData", filteredData);
+    setFilteredrestrolist(filteredData);
+    console.log(Filteredrestrolist);
+  }
+
+  console.log("render");
+
   //Early return not render component
   if (!allrestrolist) return null;
-
-  // when filetr is not found
-  // if (Filteredrestrolist?.length === 0) return <h3>Not Found by filter!!!</h3>;
 
   return allrestrolist?.length === 0 ? (
     // return restrolist.length === 0 ? (
@@ -74,28 +71,24 @@ const AppBody = () => {
           // onChange={(e) => console.log( e.target.value )}
           onChange={(e) => {
             const word = e.target.value; // what ever writing in input
-            console.log(word);
-            setSearchText(e.target.value);
+            // console.log(word);
+            setSearchText(word);
           }}
         />
-        <button
-          className="btn"
-          onClick={
-            // fetch the data and filter it
-            // update the data
-            () => {
-              const data = filterData(searchText, allrestrolist);
-              setFilteredrestrolist(data);
-            }
-          }
-        >
+        <button className="btn" onClick={handleSearch}>
           Search
         </button>
       </div>
       <div className="container">
         <div className="restro-list">
+          {console.log(Filteredrestrolist)}
           {Filteredrestrolist?.length === 0 ? (
-            <h3>Not Found by filter!!!</h3>
+            <>
+              <h3>Not Found by filter!!!</h3>
+              <Link to="/">
+                <button className="btn">Back</button>
+              </Link>
+            </>
           ) : (
             Filteredrestrolist.map((restro) => {
               // console.log(restro);
@@ -119,18 +112,6 @@ const AppBody = () => {
           <RestraurantCard {...restraurantList[2]} /> */}
         </div>
       </div>
-
-      {/* <h1
-        onClick={() => {
-          if (toggle === "Toggle Me") {
-            setToggle("yes");
-          } else {
-            setToggle("Toggle Me");
-          }
-        }}
-        >
-        {toggle}
-      </h1> */}
     </>
   );
 };

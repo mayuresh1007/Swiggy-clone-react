@@ -80,3 +80,8 @@ useEffect
 ## extension for cors 
 Allow CORS: Access-Control-Allow-Origin
 
+>> App.js >>
+chunking
+code splitting
+Dynamic bundling
+Lazy loading

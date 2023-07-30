@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { IMG_CDN_URL, RestaurantList_URL, Menu_List } from "../config";
 import Shimmerui from "./ShimmerUI";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-const RestraurantMenu = (props) => {
+const RestraurantMenu = () => {
   // how to make read dynamic URL params
   const params = useParams();
   // console.log(params);

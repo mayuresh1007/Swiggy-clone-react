@@ -1,15 +1,17 @@
 import {useState,useEffect} from 'react'
 import { RestaurantList_URLv2 } from '../config';
+import { filterData } from './helper';
 
-const useRestaurantCard = () => {
+const useRestaurantCard = (searchText) => {
    //SearchText is a local state variable
-  // const searchtext ;
-  const [searchText, setSearchText] = useState(""); // to create the local state variable // [variable name , function to update the variable]
+  
   // useStae returns the array
   // search functionality
   const [allrestrolist, setAllRestroList] = useState([]);
   const [Filteredrestrolist, setFilteredrestrolist] = useState([]);
 
+
+ 
   // toggle example
   // const [toggle, setToggle] = useState("Toggle Me");
   // console.log("render()")
@@ -42,7 +44,7 @@ const useRestaurantCard = () => {
     // console.log("allrestrolist",allrestrolist)
   }
 
-  return allrestrolist,Filteredrestrolist ,searchText
+  return [allrestrolist,Filteredrestrolist]
 }
 
 export default useRestaurantCard
