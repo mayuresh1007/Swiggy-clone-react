@@ -7,4 +7,9 @@ module.exports = {
     },},
   },
   plugins: [],
+  // for form in tailwind
+  // plugins: [
+  //   // ...
+  //   require('@tailwindcss/forms'),
+  // ],
 };

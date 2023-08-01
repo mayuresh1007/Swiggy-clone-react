@@ -25,23 +25,60 @@ const AppBody = () => {
   useEffect(() => {
     // console.log("UseEffect");
     // API call
-    getData();
+    // getData();
+    fetchAndUseData();
     // console.log("getdata");
   }, []);
 
   // async function for fetch data
+  const fetchData = async () => {
+    try {
+      const response = await fetch(RestaurantList_URLv2);
+      if (!response.ok) {
+        throw new Error("Network response was not ok.");
+      }
+      const data = await response.json();
+      // Process the data or return it as needed
+      return data;
+    } catch (error) {
+      // Handle errors here, such as logging or displaying an error message
+      console.error("Error fetching data:", error);
+      // You might return a default value or an empty array/object in case of an error
+      return [];
+    }
+  };
+  // Call the fetchData function and use the data when it's available
+  const fetchAndUseData = async () => {
+    try {
+      const data = await fetchData();
+      // Use the fetched data here, for example, update the state with it
+      // setState(data) or do something else
+      console.log("Fetched data:", data);
+      setAllRestroList(
+        data.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredrestrolist(
+        data.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } catch (error) {
+      // Handle errors here, such as logging or displaying an error message
+      console.error("Error in fetchAndUseData:", error);
+    }
+  };
 
-  async function getData() {
-    const data = await fetch(RestaurantList_URLv2);
-    const json = await data.json();
-    setAllRestroList(
-      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredrestrolist(
-      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    // console.log("allrestrolist",allrestrolist)
-  }
+  // async function getData() {
+  //   const data = await fetch(RestaurantList_URLv2).then()
+  //   const json = await data.json();
+  //   setAllRestroList(
+  //     json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //   );
+  //   setFilteredrestrolist(
+  //     json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //   );
+  // console.log("allrestrolist",allrestrolist)
+  // }
 
   // HandleSearch
   // function handleSearch() {

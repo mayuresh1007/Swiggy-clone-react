@@ -22,7 +22,9 @@ const Instamart = () => {
         // code yaychy aadhich react try to render thats why error thrown <br/>
         // to handle this case --{">"} Suspense from react library this give the mean <br />
         time loading capability like shimmerui this is done by the
-        fallback="this take any jsx / component" </p><hr />
+        fallback="this take any jsx / component" 
+        </p>
+        <hr />
         <p className="text-ellipsis">
           {" "}
           const AppLayout = () ={">"}

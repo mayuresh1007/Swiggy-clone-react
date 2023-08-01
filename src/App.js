@@ -18,7 +18,8 @@ provides the https for dev build ==> npx parcel index.html --https
 
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import AppHeader from "./Components/Header";
+// import AppHeader from "./Components/Header";
+import AppHeader from "./Components/NavBar";
 import AppFooter from "./Components/Footer";
 import AppBody from "./Components/Body";
 import AboutClass from "./Components/About";

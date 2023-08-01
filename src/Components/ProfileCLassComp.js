@@ -61,33 +61,9 @@ class ProfileClass extends React.Component {
     console.log("render", this.props.name); // secont called
     return (
       <>
-        {/* <hr />
-        <h3>Class based profile component</h3>
-        <p>{this.props.name} : from class component</p>
-        <button
-          onClick={() => {
-            this.setState({
-              increase: this.state.increase + 1,
-            });
-          }}
-        >
-          increase
-        </button>
-        <p>{this.state.increase}</p>
-
-        <button
-          onClick={() => {
-            this.setState({
-              decrease: this.state.decrease - 1,
-            });
-          }}
-        >
-          decrease
-        </button>
-        <p>{this.state.decrease}</p>
-        <hr /> */}
+        
         <div className="flex justify-center items-center mt-5 flex-col">
-          <h1>{this.state.Githubprofile.name}</h1>
+          <h1 className="text-2xl ">{this.state.Githubprofile.name}</h1>
           <img src={this.state.Githubprofile.avatar_url} alt="image" />
           <p>{this.state.Githubprofile.bio}</p>
         </div>

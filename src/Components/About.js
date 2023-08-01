@@ -43,7 +43,7 @@ class AboutClass extends React.Component {
 
         {/* this for api called in child comp example */}
         <div className="restro-list flex flex-col justify-center items-center mt-5">
-          <h1 className="">About page</h1>
+        <h1 className="mr-4 text-2xl font-bold text-logocolor"> !! About Me !!</h1>
           <ProfileClass name={"first child "} />
         </div>
       </>

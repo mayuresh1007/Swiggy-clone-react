@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Logo = () => {
   const navigate = useNavigate();
   return (
-    <div onClick={() => navigate("/")}>
+    <div onClick={() => navigate("/")} className="lg:hidden">
       <img src={logo} alt="logo" className="h-20 cursor-pointer " />
     </div>
   );

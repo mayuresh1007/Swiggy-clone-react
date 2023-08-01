@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const AppHeader = () => (
   <>
-    <div className=" flex justify-between ">
-      <div className="flex justify-between bg-logocolor shadow-lg  ">
+    <nav className="border-gray-200  bg-logocolor shadow-lg">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto  ">
         <Logo />
-        <ul className="flex  p-4 m-4 space-x-5 ">
+        <ul className="flex  p-4 m-4 md:space-x-5 ">
           <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
             <Link to="/">Home</Link>
           </li>
@@ -24,8 +24,9 @@ const AppHeader = () => (
             <Link to="/cart">Cart</Link>
           </li>
         </ul>
+        
       </div>
-    </div>
+    </nav>
   </>
 );
 
