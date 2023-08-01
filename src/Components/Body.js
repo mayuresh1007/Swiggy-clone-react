@@ -1,30 +1,32 @@
 import RestraurantCard from "./RestaurantCard";
-import { RestaurantList_URL, RestaurantList_URLv2 } from "../config";
+import { RestaurantList_URLv2 } from "../config";
 
 import { useEffect, useState } from "react"; // named import from react library
 import Shimmerui from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import withNetworkCheck from "../utils/withNetworkCheck"; // network error
 import { filterData } from "../utils/helper";
+import NoSearchFound from "./NotFoundSearch";
+import useSearch from "../utils/useSearch";
 
 const AppBody = () => {
   //SearchText is a local state variable
   // const searchtext ;
-  const [searchText, setSearchText] = useState(""); // to create the local state variable // [variable name , function to update the variable]
-  // useStae returns the array
+  // const [searchText, setSearchText] = useState(""); // to create the local state variable // [variable name , function to update the variable]
+  // useState returns the array
   // search functionality
   const [allrestrolist, setAllRestroList] = useState([]);
   const [Filteredrestrolist, setFilteredrestrolist] = useState([]);
-
+  const { searchText, handleSearch, filteredData } = useSearch(allrestrolist);
   // UseEffect hook -  to avaiding the rerender at every api call and then update the props / state
   // empty dependancy array then called => once after render called
   //dep array [searchText] => once afetr initial render + everytime after (my search text changes)
 
   useEffect(() => {
-    console.log("UseEffect");
+    // console.log("UseEffect");
     // API call
     getData();
-    console.log("getdata");
+    // console.log("getdata");
   }, []);
 
   // async function for fetch data
@@ -42,15 +44,15 @@ const AppBody = () => {
   }
 
   // HandleSearch
-  function handleSearch() {
-    console.log(searchText);
-    const filteredData = filterData(searchText, allrestrolist);
-    console.log("filteredData", filteredData);
-    setFilteredrestrolist(filteredData);
-    console.log(Filteredrestrolist);
-  }
+  // function handleSearch() {
+  //   console.log(searchText);
+  //   const filteredData = filterData(searchText, allrestrolist);
+  //   console.log("filteredData", filteredData);
+  //   setFilteredrestrolist(filteredData);
+  //   console.log(Filteredrestrolist);
+  // }
 
-  console.log("render");
+  // console.log("render");
 
   //Early return not render component
   if (!allrestrolist) return null;
@@ -62,37 +64,27 @@ const AppBody = () => {
     </>
   ) : (
     <>
-      <div className="search-container">
+      <div className="flex m-4 justify-center">
         <input
           placeholder="search"
           type="text"
-          className="search-input"
+          className="focus:bg-slate-100 p-1 mr-2"
           value={searchText}
-          // onChange={(e) => console.log( e.target.value )}
-          onChange={(e) => {
-            const word = e.target.value; // what ever writing in input
-            // console.log(word);
-            setSearchText(word);
-          }}
+          onChange={(e) => handleSearch(e.target.value)}
         />
-        <button className="btn" onClick={handleSearch}>
+        <button
+          className="bg-logocolor p-2 rounded-lg hover:bg-pink-500 text-white"
+          onClick={() => handleSearch(searchText)}
+        >
           Search
         </button>
       </div>
-      <div className="container">
-        <div className="restro-list">
-          {console.log(Filteredrestrolist)}
+      <div className="flex ">
+        <div className="flex flex-wrap justify-center">
           {Filteredrestrolist?.length === 0 ? (
-            <>
-              <h3>Not Found by filter!!!</h3>
-              <Link to="/">
-                <button className="btn">Back</button>
-              </Link>
-            </>
+            <NoSearchFound />
           ) : (
-            Filteredrestrolist.map((restro) => {
-              // console.log(restro);
-              // const{cloudinaryImageId}=restro.info
+            Filteredrestrolist?.map((restro) => {
               return (
                 <Link
                   to={"/restro/" + restro?.info?.id}

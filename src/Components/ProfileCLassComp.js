@@ -86,7 +86,7 @@ class ProfileClass extends React.Component {
         </button>
         <p>{this.state.decrease}</p>
         <hr /> */}
-        <div className="profile">
+        <div className="flex justify-center items-center mt-5 flex-col">
           <h1>{this.state.Githubprofile.name}</h1>
           <img src={this.state.Githubprofile.avatar_url} alt="image" />
           <p>{this.state.Githubprofile.bio}</p>

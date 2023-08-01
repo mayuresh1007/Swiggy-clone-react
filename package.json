@@ -5,6 +5,7 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
+    "https": "parcel index.html --https",
     "test": "jest"
   },
   "keywords": [],
@@ -14,7 +15,10 @@
     "@babel/core": "^7.22.9",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.9.3",
-    "process": "^0.11.10"
+    "postcss": "^8.4.27",
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.3"
   },
   "dependencies": {
     "react": "^18.2.0",

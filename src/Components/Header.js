@@ -4,23 +4,23 @@ import { Link } from "react-router-dom";
 
 const AppHeader = () => (
   <>
-    <div className="header link">
-    <Logo />
-      <div className="navbar ">
-        <ul>
-          <li>
+    <div className=" flex justify-between ">
+      <div className="flex justify-between bg-logocolor shadow-lg  ">
+        <Logo />
+        <ul className="flex  p-4 m-4 space-x-5 ">
+          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>
+          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
             <Link to="/cart">Cart</Link>
           </li>
         </ul>
@@ -65,3 +65,28 @@ export default AppHeader; // this is called export default
 //     </div>
 //   );
 // };
+
+// {
+/* <div className="header link">
+    <Logo />
+      <div className="navbar ">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/instamart">Instamart</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
+      </div>
+    </div> */
+// }

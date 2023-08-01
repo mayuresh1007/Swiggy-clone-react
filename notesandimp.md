@@ -2,6 +2,9 @@ https://browserslist.dev/?q=bGFzdCAxNSB2ZXJzaW9ucw%3D%3D
 
 https://www.npmjs.com/package/babel-plugin-transform-remove-console
 
+https://randomapi.com/api/6de6abfedb24f889e0b5f675edc50deb?fmt=raw&sole
+
+
 ## Config-driven UI
 Config-driven UI is a software development approach that uses a configuration file to define the layout, styles, and other properties of a user interface. This approach makes it easier to customize the UI for different use cases or user groups, without the need for extensive coding.
 

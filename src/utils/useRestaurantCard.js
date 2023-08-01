@@ -10,16 +10,6 @@ const useRestaurantCard = (searchText) => {
   const [allrestrolist, setAllRestroList] = useState([]);
   const [Filteredrestrolist, setFilteredrestrolist] = useState([]);
 
-
- 
-  // toggle example
-  // const [toggle, setToggle] = useState("Toggle Me");
-  // console.log("render()")
-
-  // UseEffect hook -  to avaiding the rerender at every api call and then update the props / state
-  // empty dependancy array then called => once after render called
-  //dep array [searchText] => once afetr initial render + everytime after (my search text changes)
-
   useEffect(() => {
     console.log("UseEffect");
     // API call
@@ -32,9 +22,7 @@ const useRestaurantCard = (searchText) => {
   async function getData() {
     const data = await fetch(RestaurantList_URLv2);
     const json = await data.json();
-    // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-    // setAllRestroList(json?.data?.cards[2]?.data?.data?.cards);
-    // // setFilteredrestrolist(json?.data?.cards[2]?.data?.data?.cards);
+    
     setAllRestroList(
       json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );

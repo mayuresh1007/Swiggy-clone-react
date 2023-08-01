@@ -1,3 +1,22 @@
+/* how many ways write css 
+inline css
+native css importing file
+styled component 
+component library - tailwind, ant,materialui,chakra ui,bootstrap,base ui web,
+
+TailWind css
+ -css on the go(in the same file)
+ -reusability
+ -flexible(costamizable)
+ -less bundle size
+ -<script src="https://cdn.tailwindcss.com"></script>
+--extenstion Tailwind CSS IntelliSense
+
+    -- cons
+    1> initial learning curve learnig and configuration
+    2> much classes
+*/
+
 body {
     font-family: 'Poppins', 'sans-serif';
     height: 100vh;
@@ -20,7 +39,6 @@ body {
 }
 
 @media screen and (max-width: 320px) {
-
     /* CSS for mobile devices */
     .header {
 
@@ -172,5 +190,8 @@ pre {
 
 .profile {
     width: "150px";
-    height: "150px"
+    height: "150px";
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center
 }

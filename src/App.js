@@ -107,7 +107,7 @@ const appRoute = createBrowserRouter([
       },
       {
         path: "/instamart",
-        // in between the suspense bcoz its lazy loading to avoid quick render and this is promis // fallback is shown in between time
+        // In between the suspense bcoz its lazy loading to avoid quick render and this is promis // fallback is shown in between time
         element: (
           <Suspense fallback={<Shimmerui/>}>    
             <Instamart />  

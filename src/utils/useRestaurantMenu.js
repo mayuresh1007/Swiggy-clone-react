@@ -13,7 +13,7 @@ const useRestaurantMenu = (id) => {
     );
     const json = await data.json();
     setMenuList(
-      json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+      json.data.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
         .itemCards
     );
   }

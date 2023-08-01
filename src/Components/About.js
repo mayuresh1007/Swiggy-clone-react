@@ -18,8 +18,7 @@
 
 import React from "react";
 import ProfileClass from "./ProfileCLassComp";
-import withNetworkCheck from '../utils/withNetworkCheck'; // network error
-
+import withNetworkCheck from "../utils/withNetworkCheck"; // network error
 
 class AboutClass extends React.Component {
   constructor(props) {
@@ -35,25 +34,25 @@ class AboutClass extends React.Component {
     console.log("render parent");
     return (
       <>
-      {/* this for two child example */}
+        {/* this for two child example */}
         {/* <h1>About page</h1> */}
         {/* <Outlet/> */}
         {/* <ProfileFunction name={"mayuresh"} /> */}
         {/* <ProfileClass name={"first child mayuresh"} /> */}
         {/* <ProfileClass name={"second child akshata"} /> */}
-      
-      {/* this for api called in child comp example */}
-        <h3>About page</h3>
-        <ProfileClass name={"first child "} />
+
+        {/* this for api called in child comp example */}
+        <div className="restro-list flex flex-col justify-center items-center mt-5">
+          <h1 className="">About page</h1>
+          <ProfileClass name={"first child "} />
+        </div>
       </>
     );
   }
 }
 
 // export default AboutClass;
-export default withNetworkCheck(AboutClass)
-
-
+export default withNetworkCheck(AboutClass);
 
 /**
  * flow of called for two child components

@@ -7,11 +7,11 @@ const Shimmerui = () => {
         <img src={truckload} alt="loading" />
       </div> */}
 
-      <div className="search-container">
-        <div className="search-shimmer"></div>
+      <div className="search-container flex items-center ">
+        <div className="search-shimmer "></div>
       </div>
 
-      <div className="restro-list">
+      <div className="restro-list flex flex-wrap justify-center">
         {Array(10)
           .fill("")
           .map((e, index) => (
