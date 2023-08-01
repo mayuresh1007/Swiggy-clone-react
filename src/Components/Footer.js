@@ -10,7 +10,7 @@ const AppFooter = () => {
   return (
     <footer style={footerStyle}>
     {/* <footer > */}
-      <p>© {new Date().getFullYear()}  imaxx All rights reserved.</p>
+      <p>Made with  by &#10084; Mayuresh  | © {new Date().getFullYear()}   All rights reserved.</p>
     </footer>
   );
 };

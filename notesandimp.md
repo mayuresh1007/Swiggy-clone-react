@@ -101,3 +101,62 @@ const AppLayout = () => {
   }
 
   make import on the top lazy loading
+
+
+  ====================================
+
+  
+In React.js, both state and props are used to manage data within a component, but they serve different purposes and have different characteristics.
+
+Props (Properties):
+Props are used to pass data from a parent component to a child component.
+Props are read-only and cannot be modified by the child component that receives them.
+They are used to provide data and configuration to child components so that the parent component can control the behavior of its children.
+Props flow in a unidirectional manner, from parent to child, and cannot be passed back to the parent directly.
+When a parent component updates the props it passes down, the child components that receive those props will also update their rendering to reflect the new data.
+Example of using props:
+
+jsx
+Copy code
+// Parent component
+import React from 'react';
+import ChildComponent from './ChildComponent';
+
+const ParentComponent = () => {
+  const dataToPass = "Hello from Parent!";
+  return <ChildComponent message={dataToPass} />;
+};
+
+// Child component
+import React from 'react';
+
+const ChildComponent = (props) => {
+  return <div>{props.message}</div>;
+};
+State:
+State is used to manage the internal data of a component.
+It is mutable and can be updated using the setState method provided by React.
+State is used to store and manage data that can change over time, and when the state changes, React will automatically re-render the component with the updated data.
+State belongs to the component that declares it and cannot be accessed or modified by other components.
+Changes to the state trigger React's reconciliation process, where it determines what parts of the UI need to be updated.
+Example of using state:
+
+jsx
+Copy code
+import React, { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
+};
+In summary, props are used for passing data from parent to child components in a unidirectional flow, while state is used for managing internal component data that can change and trigger re-rendering. Both state and props are essential for building dynamic and interactive React applications.

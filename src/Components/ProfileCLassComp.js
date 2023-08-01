@@ -61,11 +61,26 @@ class ProfileClass extends React.Component {
     console.log("render", this.props.name); // secont called
     return (
       <>
-        
         <div className="flex justify-center items-center mt-5 flex-col">
-          <h1 className="text-2xl ">{this.state.Githubprofile.name}</h1>
+          <h1 className="text-2xl my-4">{this.state.Githubprofile.name}</h1>
           <img src={this.state.Githubprofile.avatar_url} alt="image" />
+          <div className="mx-10 my-5">
           <p>{this.state.Githubprofile.bio}</p>
+          <p >
+            🔭 I’m currently working on: Building scalable web applications
+            using React and Node.js, and exploring innovative ways to enhance
+            user experiences. 👯 I’m looking to collaborate on: Exciting web
+            development projects that involve cutting-edge technologies and
+            creative problem-solving. 🤝 I’m looking for help with: Optimizing
+            performance and efficiency in web applications, as well as staying
+            updated with the latest trends in web development. 🌱 I’m currently
+            learning: Advanced React patterns and best practices, as well as
+            exploring serverless architectures with Node.js. 💬 Ask me about:
+            Anything related to React, Node.js, web development best practices,
+            or my experiences as a web developer. ⚡ Fun fact: When I'm not
+            coding, you can find me exploring perception of things.
+          </p>
+          </div>
         </div>
       </>
     );
