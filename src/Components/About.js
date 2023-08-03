@@ -19,6 +19,7 @@
 import React from "react";
 import ProfileClass from "./ProfileCLassComp";
 import withNetworkCheck from "../utils/withNetworkCheck"; // network error
+import Accordial from "./Accordian";
 
 class AboutClass extends React.Component {
   constructor(props) {
@@ -42,8 +43,12 @@ class AboutClass extends React.Component {
         {/* <ProfileClass name={"second child akshata"} /> */}
 
         {/* this for api called in child comp example */}
+        
         <div className="restro-list flex flex-col justify-center items-center mt-5">
-        <h1 className="mr-4 text-2xl font-bold text-logocolor"> !! About Me !!</h1>
+          <h1 className="mr-4 text-2xl font-bold text-logocolor">
+            {" "}
+            !! About Me !!
+          </h1>
           <ProfileClass name={"first child "} />
         </div>
       </>

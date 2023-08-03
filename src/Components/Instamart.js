@@ -1,8 +1,10 @@
 import React from "react";
+import Accordian from "./Accordian";
 
 const Instamart = () => {
   return (
     <div className="mt-4 ml-4">
+      <Accordian/>
       <h1>Instamart 100 of component inside this </h1>
       <p className="text-ellipsis">
         example for lazy loading and bundling, on demand load, chunking,code
@@ -28,7 +30,7 @@ const Instamart = () => {
         <p className="text-ellipsis">
           {" "}
           const AppLayout = () ={">"}
-          <p>dont do this under the component write import</p>
+          <i>dont do this under the component write import</i>
           const Instamart = lazy(() ={">"} import("./Components/Instamart"));<br /> //
           dont do this<br /> // coz lazy load for every render cycle make import on
           the top lazy loading
