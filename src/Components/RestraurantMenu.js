@@ -53,7 +53,7 @@ const RestraurantMenu = () => {
               >
                 {item?.card?.info?.ratings?.aggregatedRating?.rating}
               </button> */}
-              <button className="outline outline-slate-300 rounded-md ">
+              <button className="outline outline-slate-300 rounded-md cursor-not-allowed">
                 <span className="text-amber-500">
                   &#9733; {item?.card?.info?.ratings?.aggregatedRating?.rating}{" "}
                 </span>

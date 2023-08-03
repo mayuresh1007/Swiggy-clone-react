@@ -2,33 +2,38 @@
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 
-const AppHeader = () => (
-  <>
-    <nav className="border-gray-200  bg-logocolor shadow-lg">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto  ">
-        <Logo />
-        <ul className="flex  p-4 m-4 md:space-x-5 ">
-          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
-            <Link to="/instamart">Instamart</Link>
-          </li>
-          <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
-            <Link to="/cart">Cart</Link>
-          </li>
-        </ul>
+
+const AppHeader = () => {
+  
+  return (
+    <>
+      <nav className="border-gray-200  bg-logocolor shadow-lg">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto  ">
+          <Logo />
+          <ul className="flex  p-4 m-4 md:space-x-5 ">
+            <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
+              <Link to="/instamart">Instamart</Link>
+            </li>
+            <li className="bg-logocolor rounded hover:bg-pink-500 text-white px-2 ">
+              <Link to="/cart">Cart</Link>
+            </li>
+          </ul>
+        </div>
         
-      </div>
-    </nav>
-  </>
-);
+      </nav>
+      
+    </>
+  );
+};
 
 export default AppHeader; // this is called export default
 

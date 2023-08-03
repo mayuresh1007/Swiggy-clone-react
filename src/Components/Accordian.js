@@ -50,12 +50,15 @@ const Section = ({ name, desc, isVisible, setIsVisible }) => {
 
 const Accordian = () => {
   const [visibleSection, setVisibleSection] = useState("about");
+  const handleSectionClick = (sectionName) => {
+    setVisibleSection(sectionName === visibleSection ? "" : sectionName);
+  };
   //   const [isVisible, setIsVisible] = useState(false);
   //   const [sectionConfig, setSectionConfig] = useState({
   //     showAbout: false,
   //     showTeam: false,
   //     showProduct: false,
-  //   }); // working but not a good coder identy
+  //   }); // working but not a good coder identity
 
   return (
     <div className="border ">
@@ -64,8 +67,9 @@ const Accordian = () => {
         desc={
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae porro esse aperiam, fugiat dolores recusandae id omnis dolorem voluptatem rerum temporibus odit unde pariatur rem et nemo? Fuga vel, maxime doloribus itaque iusto laboriosam provident, at, quasi nesciunt soluta voluptatibus sed? Sit libero, iste ea debitis quis eius? Provident dolore veniam nam debitis ut neque !"
         }
-        isVisible={visibleSection === "about"}// isVisible controlles visible or not
-        setIsVisible={() => setVisibleSection("about")} // setIsVisible controlles what is visible
+        isVisible={visibleSection === "about"}// isVisible controlles visible or not // boolean
+        setIsVisible={() => handleSectionClick("about")} // setIsVisible controlles what is visible // string
+
         // isVisible={sectionConfig.showAbout}
         // setIsVisible={()=>setSectionConfig({
         //   showTeam: false,
@@ -78,8 +82,8 @@ const Accordian = () => {
         desc={
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae porro esse aperiam, fugiat dolores recusandae id omnis dolorem voluptatem rerum temporibus odit unde pariatur rem et nemo? Fuga vel, maxime doloribus itaque iusto laboriosam provident, at, quasi nesciunt soluta voluptatibus sed? Sit libero, iste ea debitis quis eius? Provident dolore veniam nam debitis ut neque !"
         }
-        isVisible={visibleSection === "teams"}
-        setIsVisible={() => setVisibleSection("teams")}
+        isVisible={visibleSection === "teams" }
+        setIsVisible={() => handleSectionClick("teams")}
         // isVisible={sectionConfig.showTeam}
         // setIsVisible={() =>
         //   setSectionConfig({
@@ -95,7 +99,7 @@ const Accordian = () => {
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae porro esse aperiam, fugiat dolores recusandae id omnis dolorem voluptatem rerum temporibus odit unde pariatur rem et nemo? Fuga vel, maxime doloribus itaque iusto laboriosam provident, at, quasi nesciunt soluta voluptatibus sed? Sit libero, iste ea debitis quis eius? Provident dolore veniam nam debitis ut neque !"
         }
         isVisible={visibleSection === "product"}
-        setIsVisible={() => {setVisibleSection("product")}}
+        setIsVisible={() => {handleSectionClick("product")}}
         // isVisible={sectionConfig.showProduct}
         // setIsVisible={() =>
         //   setSectionConfig({

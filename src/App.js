@@ -16,7 +16,7 @@ provides the https for dev build ==> npx parcel index.html --https
 
 */
 
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 // import AppHeader from "./Components/Header";
 import AppHeader from "./Components/NavBar";
@@ -31,6 +31,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ProfileFunction from "./Components/ProfileFunction";
 import ProfileClass from "./Components/ProfileCLassComp";
 import Shimmerui from "./Components/ShimmerUI";
+import UserContext from "./context/userConntext";
 
 // import Instamart from "./Components/Instamart";//  normal import
 const Instamart = lazy(() => import("./Components/Instamart")); // this is a dynamic import lazy loading , on dimand loaing, code splitting ,bundle chunking
@@ -49,15 +50,29 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // React Element
 
 const AppLayout = () => {
-  // const Instamart = lazy(() => import("./Components/Instamart")); //  dont do this // coz lazy load for every render cycle 
+  // const Instamart = lazy(() => import("./Components/Instamart")); //  dont do this // coz lazy load for every render cycle
+  const [user, setUser] = useState({
+    name: "Mayuresh",
+    email: "mk@email.com",
+  });
   return (
-    <React.Fragment>
-      <AppHeader />
-      {/* <AppBody /> */}
-      {/* // Outlet will filled with children */}
-      <Outlet />
-      <AppFooter />
-    </React.Fragment>
+    <>
+      <UserContext.Provider
+        value={{
+          user: user,
+        }}
+        //  value is overriding the default value passing by original usercontext
+      >
+        <React.Fragment>
+          <AppHeader />
+          {/* <AppBody /> */}
+          {/* // Outlet will filled with children */}
+          <Outlet />
+          <AppFooter />
+        </React.Fragment>
+      </UserContext.Provider>
+      {/* <AppFooter />// getting dummy data coz outside the proider  */}
+    </>
   );
 };
 /*
@@ -110,8 +125,8 @@ const appRoute = createBrowserRouter([
         path: "/instamart",
         // In between the suspense bcoz its lazy loading to avoid quick render and this is promis // fallback is shown in between time
         element: (
-          <Suspense fallback={<Shimmerui/>}>    
-            <Instamart />  
+          <Suspense fallback={<Shimmerui />}>
+            <Instamart />
           </Suspense>
         ),
       },

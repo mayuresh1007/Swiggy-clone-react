@@ -19,7 +19,7 @@
 import React from "react";
 import ProfileClass from "./ProfileCLassComp";
 import withNetworkCheck from "../utils/withNetworkCheck"; // network error
-import Accordial from "./Accordian";
+import UserContext from "../context/userConntext";
 
 class AboutClass extends React.Component {
   constructor(props) {
@@ -50,6 +50,9 @@ class AboutClass extends React.Component {
             !! About Me !!
           </h1>
           <ProfileClass name={"first child "} />
+          <UserContext.Consumer>
+            {(value)=>{console.log(value)}}
+          </UserContext.Consumer>
         </div>
       </>
     );
