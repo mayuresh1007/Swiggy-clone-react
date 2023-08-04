@@ -4,13 +4,13 @@ import { IMG_CDN_URL } from "../config";
 const RestraurantCard = (props) => {
   // console.log(props);
   return (
-    <div className="card flex flex-col justify-center w-[190px] m-4 shadow-lg ">
-      <img src={IMG_CDN_URL + props?.cloudinaryImageId} alt={props?.name} />
-      <hr className="w-46 h-0.5 bg-gray-100 md:my-1 dark:bg-slate-950" />
+    <div className="card flex flex-col justify-center w-[190px] m-4 shadow-lg text-center ">
+      <img className="rounded" src={IMG_CDN_URL + props?.cloudinaryImageId} alt={props?.name} />
+      <hr className="w-46 h-0.5 bg-gray-100 dark:bg-slate-950" />
 
       {/* <h3>{props?.id}</h3> */}
-      <h3 className="font-bold">{props?.name}</h3>
-      <hr className="w-46 h-0.5 bg-gray-100 md:my-1 dark:bg-slate-950" />
+      <h3 className="font-bold ">{props?.name}</h3>
+      <hr className="w-46 h-0.5 bg-gray-100 dark:bg-slate-950" />
       <span>
         <p>Delivery Time:- </p>
         {props?.sla?.deliveryTime} &#x1F550;Minutes

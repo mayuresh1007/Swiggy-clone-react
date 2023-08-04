@@ -4,7 +4,7 @@ import { filterData } from "../utils/helper";
 const useSearch = (initialData) => {
   const [searchText, setSearchText] = useState("");
   const [filteredData, setFilteredData] = useState(initialData);
-
+  
   useEffect(() => {
     const filteredData = filterData(searchText, initialData);
     setFilteredData(filteredData);

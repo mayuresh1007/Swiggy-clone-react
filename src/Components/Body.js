@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"; // named import from react library
 import Shimmerui from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import withNetworkCheck from "../utils/withNetworkCheck"; // network error
-import { filterData } from "../utils/helper";
+// import { filterData } from "../utils/helper";
 import NoSearchFound from "./NotFoundSearch";
 import useSearch from "../utils/useSearch";
 
@@ -23,11 +23,7 @@ const AppBody = () => {
   //dep array [searchText] => once afetr initial render + everytime after (my search text changes)
 
   useEffect(() => {
-    // console.log("UseEffect");
-    // API call
-    // getData();
-    fetchAndUseData();
-    // console.log("getdata");
+    fetchData();
   }, []);
 
   // async function for fetch data
@@ -38,22 +34,7 @@ const AppBody = () => {
         throw new Error("Network response was not ok.");
       }
       const data = await response.json();
-      // Process the data or return it as needed
-      return data;
-    } catch (error) {
-      // Handle errors here, such as logging or displaying an error message
-      console.error("Error fetching data:", error);
-      // You might return a default value or an empty array/object in case of an error
-      return [];
-    }
-  };
-  // Call the fetchData function and use the data when it's available
-  const fetchAndUseData = async () => {
-    try {
-      const data = await fetchData();
-      // Use the fetched data here, for example, update the state with it
-      // setState(data) or do something else
-      console.log("Fetched data:", data);
+      // console.log("Fetched data:", data);
       setAllRestroList(
         data.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants
@@ -64,38 +45,16 @@ const AppBody = () => {
       );
     } catch (error) {
       // Handle errors here, such as logging or displaying an error message
-      console.error("Error in fetchAndUseData:", error);
+      console.error("Error fetching data:", error);
+      // You might return a default value or an empty array/object in case of an error
+      return [];
     }
   };
-
-  // async function getData() {
-  //   const data = await fetch(RestaurantList_URLv2).then()
-  //   const json = await data.json();
-  //   setAllRestroList(
-  //     json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  //   );
-  //   setFilteredrestrolist(
-  //     json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  //   );
-  // console.log("allrestrolist",allrestrolist)
-  // }
-
-  // HandleSearch
-  // function handleSearch() {
-  //   console.log(searchText);
-  //   const filteredData = filterData(searchText, allrestrolist);
-  //   console.log("filteredData", filteredData);
-  //   setFilteredrestrolist(filteredData);
-  //   console.log(Filteredrestrolist);
-  // }
-
-  // console.log("render");
 
   //Early return not render component
   if (!allrestrolist) return null;
 
   return allrestrolist?.length === 0 ? (
-    // return restrolist.length === 0 ? (
     <>
       <Shimmerui />
     </>
@@ -103,9 +62,9 @@ const AppBody = () => {
     <>
       <div className="flex m-4 justify-center">
         <input
-          placeholder="search"
+          placeholder="Search a restaurant..."
           type="text"
-          className="focus:bg-slate-100 p-1 mr-2"
+          className="focus:bg-slate-100 p-1 mr-2 border-2 rounded-md"
           value={searchText}
           onChange={(e) => handleSearch(e.target.value)}
         />

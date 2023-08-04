@@ -16,10 +16,9 @@ provides the https for dev build ==> npx parcel index.html --https
 
 */
 
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense, useState, StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 // import AppHeader from "./Components/Header";
-import AppHeader from "./Components/NavBar";
 import AppFooter from "./Components/Footer";
 import AppBody from "./Components/Body";
 import AboutClass from "./Components/About";
@@ -32,6 +31,11 @@ import ProfileFunction from "./Components/ProfileFunction";
 import ProfileClass from "./Components/ProfileCLassComp";
 import Shimmerui from "./Components/ShimmerUI";
 import UserContext from "./context/userConntext";
+import NavBar from "./Components/NavBar";
+
+//ReDUX
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 // import Instamart from "./Components/Instamart";//  normal import
 const Instamart = lazy(() => import("./Components/Instamart")); // this is a dynamic import lazy loading , on dimand loaing, code splitting ,bundle chunking
@@ -57,21 +61,26 @@ const AppLayout = () => {
   });
   return (
     <>
-      <UserContext.Provider
-        value={{
-          user: user,
-        }}
-        //  value is overriding the default value passing by original usercontext
-      >
-        <React.Fragment>
-          <AppHeader />
-          {/* <AppBody /> */}
-          {/* // Outlet will filled with children */}
-          <Outlet />
-          <AppFooter />
-        </React.Fragment>
-      </UserContext.Provider>
-      {/* <AppFooter />// getting dummy data coz outside the proider  */}
+      {/* Provider - react-redux  */}
+      <StrictMode>
+        <Provider store={store}>
+          <UserContext.Provider
+            value={{
+              user: user,
+            }}
+            //  value is overriding the default value passing by original usercontext
+          >
+            <React.Fragment>
+              <NavBar />
+              {/* <AppBody /> */}
+              {/* // Outlet will filled with children */}
+              <Outlet />
+              <AppFooter />
+            </React.Fragment>
+          </UserContext.Provider>
+          {/* <AppFooter />// getting dummy data coz outside the proider  */}
+        </Provider>
+      </StrictMode>
     </>
   );
 };

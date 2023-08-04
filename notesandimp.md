@@ -160,3 +160,10 @@ const Counter = () => {
   );
 };
 In summary, props are used for passing data from parent to child components in a unidirectional flow, while state is used for managing internal component data that can change and trigger re-rendering. Both state and props are essential for building dynamic and interactive React applications.
+
+
+=============REDUX TOOLKIT ==================
+- need packges
+ npm install @reduxjs/toolkit
+ npm install react-redux
+

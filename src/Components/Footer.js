@@ -5,6 +5,7 @@ const AppFooter = () => {
   const {user}  = useContext(UserContext);
   // console.log(user)
   return (
+    
     <footer style={footerStyle}>
       {/* <footer > */}
       <p>
@@ -13,6 +14,10 @@ const AppFooter = () => {
       </p>
       {/* <p>{user.name}</p>  */}
     </footer>
+    
+
+    
+    
   );
 };
 
@@ -21,6 +26,14 @@ const footerStyle = {
   padding: "10px",
   textAlign: "center",
   margin: "50px auto",
+
+  // fixing position
+  // position: "absolute",
+  //   left: "0",
+  //   bottom: "0",
+  //   width: "100%",
+  //   height: "60px",/* Adjust the height of the footer as needed */
+    
 };
 
 export default AppFooter;
