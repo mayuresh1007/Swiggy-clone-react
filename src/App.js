@@ -35,7 +35,10 @@ import NavBar from "./Components/NavBar";
 
 //ReDUX
 import { Provider } from "react-redux";
-import store from "./utils/store";
+// import store from "./utils/store";
+// persist
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./utils/store";
 
 // import Instamart from "./Components/Instamart";//  normal import
 const Instamart = lazy(() => import("./Components/Instamart")); // this is a dynamic import lazy loading , on dimand loaing, code splitting ,bundle chunking
@@ -64,21 +67,23 @@ const AppLayout = () => {
       {/* Provider - react-redux  */}
       <StrictMode>
         <Provider store={store}>
-          <UserContext.Provider
-            value={{
-              user: user,
-            }}
-            //  value is overriding the default value passing by original usercontext
-          >
-            <React.Fragment>
-              <NavBar />
-              {/* <AppBody /> */}
-              {/* // Outlet will filled with children */}
-              <Outlet />
-              <AppFooter />
-            </React.Fragment>
-          </UserContext.Provider>
-          {/* <AppFooter />// getting dummy data coz outside the proider  */}
+          <PersistGate loading={null} persistor={persistor}>
+            <UserContext.Provider
+              value={{
+                user: user,
+              }}
+              //  value is overriding the default value passing by original usercontext
+            >
+              <React.Fragment>
+                <NavBar />
+                {/* <AppBody /> */}
+                {/* // Outlet will filled with children */}
+                <Outlet />
+                <AppFooter />
+              </React.Fragment>
+            </UserContext.Provider>
+            {/* <AppFooter />// getting dummy data coz outside the proider  */}
+          </PersistGate>
         </Provider>
       </StrictMode>
     </>

@@ -1,6 +1,6 @@
-export function filterData(searchText, allrestrolist) {
+export function filterData(searchText, Filteredrestrolist) {
   console.log(searchText)
-    const FData = allrestrolist?.filter((restro) => {
+    const FData = Filteredrestrolist?.filter((restro) => {
       // console.log(restro)
       const name = restro?.info.name.toLowerCase().includes(searchText.toLowerCase());
     });

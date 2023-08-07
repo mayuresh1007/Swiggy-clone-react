@@ -8,6 +8,8 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   // const store = useSelector(store=>store); // bad performance low
   console.log("cartItems--->", cartItems);
+  const [cartitems,setCartitems] = useState(cartItems)
+
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
@@ -16,17 +18,19 @@ const Cart = () => {
   const handleAddItem = (item) => {
     console.log(item);
     dispatch(addItem(item));
+    setCartitems(cartItems)
   };
   const handleRemoveItem = (item) => {
     console.log(item);
     dispatch(removeItem(item));
+    setCartitems(cartItems)
   };
 
   const TotalPrice = cartItems.reduce(
     (accumulator, item) => accumulator + item.price,
     0
   );
-  console.log(TotalPrice);
+  // console.log(TotalPrice);
 
   return (
     <>

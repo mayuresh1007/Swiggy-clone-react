@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice ,} from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -10,9 +10,17 @@ const cartSlice = createSlice({
       state.items.push(action.payload);
     },
     removeItem: (state, action) => {
-      // state.items.pop();
-      state.items.pop(action.payload);
+      // console.log(state.items);
+      const itemIdToRemove = action.payload;
+      console.log("check 1-->",itemIdToRemove)
+      state.items = state.items.filter(item => item.id !== itemIdToRemove.id);
+      console.log("check 2-->",action.payload);
+      console.log("check 3-->",state.items);
+      // state.items.splice(itemIdToRemove, 1);
+      // console.log(state.items.action.payload);
+      // state.items..splice(1, 2));
       //improve logic which is remove by indexing the items
+
     },
     clearCart: (state) => {
       state.items = [];

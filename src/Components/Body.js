@@ -8,6 +8,7 @@ import withNetworkCheck from "../utils/withNetworkCheck"; // network error
 // import { filterData } from "../utils/helper";
 import NoSearchFound from "./NotFoundSearch";
 import useSearch from "../utils/useSearch";
+import AllRestaurantsCard from "./AllRestaurantsCard";
 
 const AppBody = () => {
   //SearchText is a local state variable
@@ -17,7 +18,9 @@ const AppBody = () => {
   // search functionality
   const [allrestrolist, setAllRestroList] = useState([]);
   const [Filteredrestrolist, setFilteredrestrolist] = useState([]);
-  const { searchText, handleSearch, filteredData } = useSearch(allrestrolist);
+  const { searchText, handleSearch, filteredData } = useSearch(Filteredrestrolist);
+  console.log(filteredData);
+  console.log(Filteredrestrolist);
   // UseEffect hook -  to avaiding the rerender at every api call and then update the props / state
   // empty dependancy array then called => once after render called
   //dep array [searchText] => once afetr initial render + everytime after (my search text changes)
@@ -50,7 +53,11 @@ const AppBody = () => {
       return [];
     }
   };
-
+  // function handleSearchList() {
+  //   console.log("called the function ");
+  //   setFilteredrestrolist(filteredData);
+  //   console.log("called the function -->", Filteredrestrolist);
+  // }
   //Early return not render component
   if (!allrestrolist) return null;
 
@@ -70,6 +77,7 @@ const AppBody = () => {
         />
         <button
           className="bg-logocolor p-2 rounded-lg hover:bg-pink-500 text-white"
+          // onClick={() => handleSearchList()}
           onClick={() => handleSearch(searchText)}
         >
           Search
@@ -80,17 +88,18 @@ const AppBody = () => {
           {Filteredrestrolist?.length === 0 ? (
             <NoSearchFound />
           ) : (
-            Filteredrestrolist?.map((restro) => {
-              return (
-                <Link
-                  to={"/restro/" + restro?.info?.id}
-                  key={restro?.info?.id}
-                  className="link"
-                >
-                  <RestraurantCard {...restro?.info} />
-                </Link>
-              );
-            })
+            <AllRestaurantsCard allrestrolist={Filteredrestrolist} />
+            // Filteredrestrolist?.map((restro) => {
+            //   return (
+            //     <Link
+            //       to={"/restro/" + restro?.info?.id}
+            //       key={restro?.info?.id}
+            //       className="link"
+            //     >
+            //       <RestraurantCard {...restro?.info} />
+            //     </Link>
+            //   );
+            // })
           )}
           {/* {RestraurantCard(restraurantList[0])} method 1 same the functions passing the arguments */}
           {/* <RestraurantCard restraurant={restraurantList[0]} /> method 2 <RestraurantCard restraurant={restraurantList[1]} />
