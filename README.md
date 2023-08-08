@@ -1,7 +1,7 @@
 # Swiggy-clone-react
 learn the react by basic to advance.
 
-# requirments for projects
+# requirements for project
 -chrome extentions 
  - Allow CORS: Access-Control-Allow-Origin -- for allow the cors in browserside
  - react developer tool - debug and monitor webapp
